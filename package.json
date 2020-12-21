@@ -1,5 +1,5 @@
 {
-  "name": "join-monster",
+  "name": "@kan0315/join-monster",
   "version": "3.0.1",
   "description": "A GraphQL to SQL query execution layer for batch data fetching.",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && babel src --no-comments --out-dir dist --copy-files --ignore README.md",
+    "build": "del /s/f/q dist && babel src --no-comments --out-dir dist --copy-files --ignore README.md",
     "watch": "rm -rf dist && babel src --watch --source-maps true --out-dir dist",
     "test": "bin/test --no-oracle",
     "testsqlite3": "NODE_ENV=test ava test/*.js",
@@ -29,7 +29,6 @@
     "start": "babel-watch ./test-api/server.js",
     "docs": "mkdocs serve",
     "jsdoc": "babel src/index.js -o temp.js && (jsdoc2md temp.js | sed '/\\*\\*Kind\\*\\*:/d' > docs/API.md) && rm temp.js",
-    "prepublishOnly": "/bin/sh ./scripts/prepublish.sh && npm run build",
     "preversion": ". ./scripts/checkgit.sh && npm test",
     "db-build": "TZ=UTC babel-node test-api/data/build.js",
     "db-shell": "sqlite3 --column --header test-api/data/db/demo-data.sl3",
@@ -78,7 +77,7 @@
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
-    "@babel/cli": "^7.8.4",
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-do-expressions": "^7.8.3",
@@ -113,7 +112,7 @@
     "tsd": "^0.13.1"
   },
   "dependencies": {
-    "@stem/nesthydrationjs": "0.4.0",
+    "nesthydrationjs": "v2.0.0",
     "debug": "^4.1.0",
     "deprecate": "^1.0.0",
     "generatorics": "^1.0.8",
